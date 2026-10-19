@@ -10,9 +10,11 @@
   "private": true,
   "workspaces": [
     "backend/*",
-    "frontend"
+    "packages/*"
   ],
   "scripts": {
+    "infra:up": "docker compose up -d",
+    "infra:down": "docker compose down",
     "dev:auth": "cd backend/auth-service && npm run dev",
     "dev:cart": "cd backend/cart-service && npm run dev",
     "dev:delivery": "cd backend/delivery-service && npm run dev",
@@ -20,9 +22,6 @@
     "dev:payment": "cd backend/payment-service && npm run dev",
     "dev:restaurant": "cd backend/restaurant-service && npm run dev",
     "dev:user": "cd backend/user-service && npm run dev",
-    "dev:frontend": "cd frontend && npm run dev",
-
-    "dev:backend": "concurrently \"npm run dev:auth\" \"npm run dev:cart\" \"npm run dev:delivery\" \"npm run dev:order\" \"npm run dev:payment\" \"npm run dev:restaurant\" \"npm run dev:user\"",
-    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\""
+    "dev": "concurrently \"npm run dev:auth\" \"npm run dev:cart\" \"npm run dev:delivery\" \"npm run dev:order\" \"npm run dev:payment\" \"npm run dev:restaurant\" \"npm run dev:user\""   
   }
 }
